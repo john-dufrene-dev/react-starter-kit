@@ -4,16 +4,16 @@ import { Menu as MenuIcon, Home, Search, Person } from '@material-ui/icons';
 import { Button, BottomNavigation, BottomNavigationAction as Bna, MenuItem, Menu } from "@material-ui/core";
 import { useIsAuthenticated } from 'react-auth-kit';
 
-import { stickyMenuAccountStyles } from './styles';
-import { DialogMobileSearch } from '../../Modal/StickyModalSearch/StickyModalSearch'
-import { DarkMode } from '../../../redux/theme/DarkMode'
-import { _menus } from '../../../config/menus';
+import { AccountMenuStyles } from '../styles';
+import { DialogMobileSearch } from '../../../../components/Modal/StickyModalSearch/StickyModalSearch'
+import { DarkMode } from '../../../../redux/theme/DarkMode'
+import { _menus } from '../../../../config/menus';
 
 const m = _menus;
 
 export const AccountMenuDesktop = () => {
     const isAuthenticated = useIsAuthenticated();
-    const { menuButton } = stickyMenuAccountStyles();
+    const { menuButton } = AccountMenuStyles();
     const [open, setOpen] = useState(null);
 
     const handleClick = e => setOpen(e.currentTarget);

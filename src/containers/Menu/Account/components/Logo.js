@@ -1,19 +1,19 @@
 import { Typography, Link, useTheme } from '@material-ui/core';
 import { useWindowWidth } from '@react-hook/window-size'
 
-import { stickyLogoStyles } from './styles'
-import { _routes } from '../../../config/routes'
+import { AccountMenuStyles } from '../styles'
+import { _routes } from '../../../../config/routes'
 
 export const StickyLogo = () => {
     const onlyWidth = useWindowWidth();
     const theme = useTheme();
-    const classes = stickyLogoStyles();
+    const { top, bottom, logo } = AccountMenuStyles();
 
-    const displayLogo = onlyWidth < theme.breakpoints.values.md ? classes.bottom : classes.top;
+    const displayLogo = onlyWidth < theme.breakpoints.values.md ? bottom : top;
     const color = theme.palette.type === 'light' ? 'primary' : 'secondary';
 
     return (
-        <Typography variant="h6" component="h1" className={`${classes.logo} ${displayLogo}`}>
+        <Typography variant="h6" component="h1" className={`${logo} ${displayLogo}`}>
             <Link color={color} underline="none" href={_routes._home}>{`StyckyLogo`}</Link>
         </Typography>
     );
